@@ -17,7 +17,7 @@
 <script type="text/javascript">
     const formLogin = document.querySelector('#login')
     const formData  = new FormData(formLogin)
-
+    console.log(formLogin)
     formLogin.addEventListener('submit', (event) => {
         event.preventDefault()
         fetch('/api/signin', {

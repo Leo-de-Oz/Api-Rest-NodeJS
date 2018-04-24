@@ -42,4 +42,12 @@ UsuarioSchema.methods.gravatar = function (size) {
     return `https://gravatar.com/avatar/${md5}?s=2006d=retro`
 }
 
+//método para comparar las contraseñas:
+UsuarioSchema.methods.comparePassword = function (candidatePassword,hash,cb) {
+    bcrypt.compare(candidatePassword,hash, (err, isMatch) => { 
+        console.log('compare: ',candidatePassword)  
+        cb(err, isMatch) 
+        })  
+      }
+
 module.exports = mongoose.model('Usuario', UsuarioSchema)
